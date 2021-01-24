@@ -1,0 +1,46 @@
+.button{
+    &_type{
+        &_more{
+            @extend %nullLink;
+            display: inline-flex;
+            align-items: center;
+            font-size: (16rem / 16);
+            line-height: (22rem / 16);
+            color: $basicOrange;
+            &::after{
+                content:'';
+                display: block;
+                width: 20px;
+                height: 10px;
+                background-image: url('../images/arrow_left.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-left: 8px;
+                transition: .3s;
+            }
+            &:hover{
+                color: $basicOrange;
+            }
+            &:hover::after{
+                transform: translateX(6px);
+            }
+            &:active::after{
+                transform: translateX(0px);
+            }
+        }
+        &_submit{
+            @extend %baseFlex;
+            background-color: transparent;
+            color: $basicOrange;
+            &:hover{
+                opacity: .7;
+                span{
+                    transform: translateX(6px);
+                }
+            }
+            span{
+                transition: .3s;
+            }
+        }
+    }
+}

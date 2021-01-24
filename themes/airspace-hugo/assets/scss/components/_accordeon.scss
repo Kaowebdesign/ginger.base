@@ -1,0 +1,32 @@
+.accordeon{
+    &__button{
+        @extend %noneOutline;
+        background: transparent;
+        svg{
+            display: block;
+            margin-left: 8px;
+            transition: .3s;
+        }
+        svg path{
+            fill:$basicBlack;
+            
+        }
+    }
+    &__icon{
+        display: inline-block;
+        transition: .3s;
+    }
+    &__button[aria-expanded="true"]{
+        color:$basicOrange;
+        svg path{
+            fill:$basicOrange;
+        }
+        .accordeon__icon{
+        
+            transform: rotate(-45deg);
+        }
+    }
+    &__description{
+        color: $basicGrey;
+    }
+}

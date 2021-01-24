@@ -1,0 +1,176 @@
+{{ define "main" }}
+
+{{ $data := index site.Data site.Language.Lang }}
+
+<main class="main">
+<!-- main block -->
+{{ if $data.homepage.main_block.enable }}
+{{ with $data.homepage.main_block }}
+<section class="full-section main-block d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex flex-column align-items-center">
+          <h1 class="text text_size_h1 text-center mb-0">{{ .title | markdownify }}</h1>
+          <a href="#about" class="arrow arrow_down scrollto">
+            <img src="/images/arrow_down.svg" alt="arrow down">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-block__bottom">
+    <h2 class="text text_size_h2">Ginger<span class="text_color_orange"> Studio</span></h2>
+  </div>
+  <img src="/images/circle-1.svg" alt="circle 1" class="circle circle_main-block" />
+</section>
+{{ end }}
+{{ end }}
+<!-- /main block -->
+
+<!-- about -->
+{{ if $data.homepage.about.enable }}
+  {{ with $data.homepage.about }}
+    <section class="full-section d-flex align-items-center about" id="about">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-5 about__left">
+            <h2 class="text text_size_h2 mb-4">{{ .title | markdownify }}</h2>
+            <p class="text text_size_md text_color_grey mb-4">{{ .description | markdownify }}</p>
+            {{ if .button.enable }}
+              {{ with .button }}
+                <a href="{{ .link }}" class="button button_type_more scrollto">{{ .label }}</a>
+              {{ end }}
+            {{ end }}
+          </div>
+          <div class="offset-lg-1 col-4 col-md-2 base-image__moved base-image__moved_one">
+              <img src="{{ .image1 | absURL }}" alt="about image" class="img-fluid w-100 base-image base-image_filter_grey" />
+          </div>
+          <div class="col-4 col-md-2 base-image__moved base-image__moved_two">
+            <img src="{{ .image2 | absURL }}" alt="about image" class="img-fluid w-100 base-image base-image_filter_grey" />
+          </div>
+          <div class="col-4 col-md-2 base-image__moved base-image__moved_three">
+            <img src="{{ .image3 | absURL }}" alt="about image" class="img-fluid w-100 base-image base-image_filter_grey" />
+          </div>
+        </div>
+      </div>
+      <img src="/images/circle-2.svg" alt="circle 2" class="circle circle_about" />
+    </section>
+  {{ end }}
+{{ end }}
+<!-- /about -->
+
+<!-- services -->
+{{ if $data.homepage.services.enable }}
+  {{ with $data.homepage.services }}
+    <section class="d-flex align-items-center services" id="services">
+      <span class="services__circle">
+        <svg width="502" height="502" viewBox="0 0 502 502" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="251" cy="251" r="251" fill="#FCBFAC"/>
+        </svg>              
+      </span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-5 col-12 services__left">
+            <h2 class="text text_size_h2 mb-4 services__title">{{ .title | markdownify }}</h2>
+          </div>
+          <div class="col-12 col-sm-8 col-md-5 offset-lg-2 services__right">
+            {{ range .service_list }}
+              <div class="accordeon">
+                <div class="accordeon__header mb-4" id="{{ .id }}">
+                  <h2 class="mb-0">
+                    <button class="accordeon__button text_size_h2" type="button" data-toggle="collapse" data-target="#collapse{{ .id}}" aria-expanded="false" aria-controls="collapse{{ .id}}">
+                      {{ .label }}
+                      <span class="accordeon__icon">
+                        <svg width="21" height="8" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20.3536 4.35355C20.5488 4.15829 20.5488 3.84171 20.3536 3.64645L17.1716 0.464466C16.9763 0.269204 16.6597 0.269204 16.4645 0.464466C16.2692 0.659728 16.2692 0.976311 16.4645 1.17157L19.2929 4L16.4645 6.82843C16.2692 7.02369 16.2692 7.34027 16.4645 7.53553C16.6597 7.7308 16.9763 7.7308 17.1716 7.53553L20.3536 4.35355ZM0 4.5H20V3.5H0V4.5Z" fill="#FF9F81"/>
+                        </svg>    
+                      </span>                    
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapse{{ .id}}" class="collapse mb-4" aria-labelledby="{{ .id }}">
+                  <div class="accordeon__body">
+                    <p class="accordeon__description mb-3">{{ .description }}</p>
+                    {{ range .technology }}
+                      <span class="tips mr-2">{{ .label }}</span>
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
+<!-- /services -->
+
+<!-- projects -->
+{{ if $data.homepage.projects.enable }}
+  {{ with $data.homepage.projects }}
+    <section class="projects">
+      <div class="container">
+        <div class="row">
+            <div class="col-12 projects__title-wrap">
+              <h2 class="text text_size_h2 mb-4 projects__title">{{ .title | markdownify }}</h2>
+            </div>
+            {{ range .projects_list }}
+              {{ if not ( modBool .id 2 )}}
+                <div class="col-12 col-md-6 col-lg-5">
+              {{ else }}
+                <div class="col-12 col-md-6 col-lg-5 offset-lg-1 projects__right">
+              {{ end }}
+                  <div class="project-card mb-4" data-position="{{ .dataId }}">
+                    <img src="{{ .image_src }}" alt="{{ .label }}" class="project-card__img base-image_filter_grey img-fluid"/>
+                    <h3 class="project-card__title mt-2 mb-2 mt-lg-4 mb-lg-3">{{ .label }}</h3>
+                    <p class="project-card__description mb-2 mb-lg-3">{{ .description }}</p>
+                    {{ range .technology }}
+                      <span class="tips mr-2">{{ .label }}</span>
+                    {{ end }}
+                  </div>
+                </div>
+            {{ end }}
+        </div>
+      </div>
+      <img src="/images/circle-5.svg" alt="circle orange" class="circle circle_projects">
+    </section>
+  {{ end }}
+{{ end }}
+<!-- /projects -->
+
+<!-- how we work -->
+{{ if $data.homepage.howwork.enable }}
+  {{ with $data.homepage.howwork }}
+    <section class="full-section d-flex align-items-center how-work">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-5">
+            <h2 class="text text_size_h2 mb-4 how-work__title">{{ .title | markdownify }}</h2>
+          </div>
+          <div class="col-12 col-md-6 how-work__right">
+            {{ range .howwork_list }}
+              <div class="row mb-4">
+                <div class="col-2 pt-2 text-center how-work__icon">
+                  <div class="howwork-card">
+                    <img src="{{ .image_src }}" alt="{{ .label }}"/>
+                  </div>
+                </div>
+                <div class="col-10">
+                  <h3 class="text text_size_h2 mb-3">{{ .label }}</h3>
+                  <p class="text text_size_md text_color_grey">{{ .description }}</p>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
+<!-- /how we work -->
+
+
+</main>
+{{ end }}

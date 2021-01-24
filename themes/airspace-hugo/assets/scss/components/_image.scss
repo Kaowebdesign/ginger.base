@@ -1,0 +1,37 @@
+.base-image{
+    &__moved{
+        @extend %basePos;
+        &::after{
+            content: '';
+            @extend %absolutePos;
+            display: block;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 40px);
+            border-top: 40px solid $basicWhite;
+            border-bottom: 40px solid $basicWhite;
+            animation: moveImageBorder 2s linear 0s infinite alternate;
+        }
+        &_one{
+            &::after{
+                animation-delay: 0s;
+            }
+        }
+        &_two{
+            &::after{
+                animation-delay: .7s;
+            }
+        }
+        &_three{
+            &::after{
+                animation-delay: 1.3s;
+            }
+        }
+    }
+    &_filter{
+        &_grey{
+            filter: grayscale(1);
+        }
+    }
+}

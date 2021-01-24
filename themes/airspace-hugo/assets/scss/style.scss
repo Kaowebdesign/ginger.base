@@ -1,0 +1,32 @@
+@charset "utf-8";
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+    }
+}
+
+body {
+    font-size: 16px;
+    min-width: 320px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+@import "./vars";
+@import "./templates";
+@import "./_animation";
+@import "./components/text";
+@import "./components/button";
+@import "./components/image";
+@import "./components/accordeon";
+@import "./components/tips";
+@import "./components/base-input";
+@import "./header";
+@import "./main";
+@import "./footer";
+@import "./media";

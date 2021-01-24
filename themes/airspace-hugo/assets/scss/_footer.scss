@@ -1,0 +1,22 @@
+.footer{
+    @extend %basePos;
+    border-top: 1px solid $duoGrey;
+    padding: 48px 0;
+    overflow: hidden;
+    &__logo{
+        display: inline-block;
+        &:hover{
+            svg{
+                transform: rotate(-40deg);
+                path{
+                    opacity: 0;
+                }
+            }
+        }
+        svg{
+            width: 120px;
+            height: 130px;
+            transition: .3s;
+        }
+    }
+}

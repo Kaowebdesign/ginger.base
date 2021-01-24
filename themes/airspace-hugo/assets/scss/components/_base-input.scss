@@ -1,0 +1,13 @@
+.base-input{
+    display: block;
+    width: 100%;
+    color: $basicGrey;
+    padding: 10px 0;
+    border-bottom: 1px solid $duoGrey;
+    &::placeholder{
+        color: $duoGrey;
+    }
+    &:focus{
+        border-color: $basicGrey;
+    }
+}

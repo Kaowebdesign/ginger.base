@@ -1,0 +1,110 @@
+.main{
+    overflow: hidden;
+}
+.full-section{
+    @extend %basePos;
+    width: 100%;
+    height: 100vh;
+}
+.word{
+    &_uppercase{
+        @extend %basePos;
+        display: inline-block;
+        &::after{
+            content: '';
+            @extend %absolutePos;
+            left: 0;
+            bottom: -5px;
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: $duoOrange;
+        }
+    }
+}
+.arrow{
+    display: block;
+    &_down{
+        @extend %nullLink;
+        margin-top: 24px;
+        animation: moveArrowDown 2s linear 0s infinite alternate;
+        &:hover{
+            opacity: .7;
+            animation-play-state: paused;
+        }
+    }
+}
+.main-block{
+    &__bottom{
+        @extend %absolutePos;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 40px 60px;
+    }
+}
+.circle{
+    @extend %absolutePos;
+    display: block;
+    animation: moveCircle 3s linear 0s infinite normal;
+    transform-origin: center;
+    z-index: -1;
+    &_main-block{
+        bottom: -75px;
+        right: -130px;
+    }
+    &_about{
+        bottom: -99px;
+        left: -186px;
+    }
+    &_projects{
+        transform: scale(0.7);
+        left: -201px;
+        bottom: -134px;
+    }
+    &_footer{
+        bottom: -155px;
+        right: -227px;
+    }
+}
+.services{
+    @extend %basePos;
+    padding: 15% 0;
+    &__circle{
+        @extend %absolutePos;
+        top:150px;
+        right: -250px;
+        display: block;
+    }
+}
+.projects{
+    @extend %basePos;
+    &__title-wrap{
+        padding-bottom: 20%;
+    }
+    &__right{
+        transform: translateY(-30%);
+    }
+}
+.project-card{
+    padding-bottom: 20%;
+    &.color{
+        img{
+            filter: none;
+        }
+    }
+    &__img{
+        width: 100%;
+        transition: 0.4s;
+    }
+    &__title{
+        font-size: (22rem / 16);
+        line-height: (20rem / 16);
+        color: $basicBlack;
+    }
+    &__description{
+        font-size: (16rem / 16);
+        line-height: (22rem  /16);
+        color: $basicGrey;
+    }
+}

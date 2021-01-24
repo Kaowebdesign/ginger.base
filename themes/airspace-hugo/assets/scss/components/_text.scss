@@ -1,0 +1,42 @@
+.text{
+    &_size{
+        &_h1{
+            font-size: (22rem / 16);
+            line-height: (30rem / 16);
+        }
+        &_h2{
+            font-size: (22rem / 16);
+            line-height: (30rem / 16);
+        }
+        &_md{
+            font-size: (16rem / 16);
+            line-height: (22rem / 16);
+        }
+        &_sm{
+            font-size: (14rem / 16);
+            line-height: (19rem / 16);
+        }
+    }
+    &_weight{
+        &_regular{
+            font-weight: 400;
+        }
+        &_semi-bold{
+            font-weight: 600;
+        }
+        &_bold{
+            font-weight: 700;
+        }
+    }
+    &_color{
+        &_orange{
+            color: $basicOrange;
+        }
+        &_grey{
+            color:$basicGrey;
+        }
+        &_grey-light{
+            color:$duoGrey;
+        }
+    }
+}

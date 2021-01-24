@@ -1,0 +1,114 @@
+############################### Main Block ##############################
+main_block:
+  enable : true
+  bg_image : ""
+  bg_overlay : true
+  title : "Мы соединили лучшие практики и технологии <br/> чтоб сделать сайты по настоящему <span class='word_uppercase'>быстрыми</span> & удобными"
+  content : ""
+  button:
+    enable : false
+    label : "Discover Our Project"
+    link : "project"
+
+############################# About #################################
+about:
+  enable : true
+  title : "В Ginger Studio мы создаем доступные и современные web сайты и приложения"
+  description : "Наши занания и решения помогут вам получить действительно качественный продукт, который будет успешно конкурировать на рынке."
+  image1 : "/images/about-1.jpg"
+  image2 : "/images/about-2.jpg"
+  image3 : "/images/about-3.jpg"
+  button:
+    enable: true
+    label: "Подробнее"
+    link: "#services"
+
+############################# Services #################################
+
+services:
+  enable: true
+  title: "Мы делаем сложные вещи <br/><span class='word_uppercase'>простыми</span> для использования"
+  service_list: 
+    - id: "landing"
+      label: "Landing page"
+      description: "Здесь будет очень интересное описание. Здесь будет очень интересное описание. Здесь будет очень интересное описание."
+      technology:
+        - label: "html"
+        - label: "css"
+        - label: "js"
+    - id: "blog"
+      label: "Блог"
+      description: "Здесь будет очень интересное описание. Здесь будет очень интересное описание. Здесь будет очень интересное описание."
+    - id: "news"
+      label: "Новостной сайт"
+      description: "Здесь будет очень интересное описание. Здесь будет очень интересное описание. Здесь будет очень интересное описание."
+    - id: "ecommerce"
+      label: "Интернет магазин"
+      description: "Здесь будет очень интересное описание. Здесь будет очень интересное описание. Здесь будет очень интересное описание."
+
+############################# Projects #################################
+
+projects:
+  enable: true
+  title: "Наши <span class='word_uppercase'>проекты</span>"
+  projects_list:
+    - id: 1
+      dataId: 2
+      label: "Кривой Рог Металлолом"
+      description: "Сайт разработан на популярной CMS Wordpress. Удобная и простая админ панель позволяет легко отследить лиды."
+      image_src: "/images/project2.jpg"
+      technology:
+        - label: "php"
+        - label: "Wordpress"
+    - id: 2
+      dataId: 1
+      label: "TopDevNews"
+      description: "Самые актуальные новости в мире IT. Приложение разработано на современном javascript фреймворке React. Потрясающая скорость перехода между страницами и максимальный комфорт при чтении статей гарантировано."
+      image_src: "/images/project1.jpg"
+      technology:
+        - label: "React"
+        - label: "Redux"
+        - label: "php"
+    - id: 3
+      dataId: 4
+      label: "Empire Woman"
+      description: "Блог женского центра. Многостраничный сайт с курсами, новостями, личным блогом и многим другим. Разработан на CMS Wordpress."
+      image_src: "/images/project4.jpg"
+      technology:
+        - label: "php"
+        - label: "Wordpress"
+    - id: 4
+      dataId: 3
+      label: "Днепр металлолом"
+      description: "Лендинг пейдж на CMS Wordpress. Основная задача сайта - собирать лиды."
+      image_src: "/images/project3.jpg"
+      technology:
+        - label: "php"
+        - label: "Wordpress"
+
+############################# How we work #################################
+      
+howwork:
+  enable: true
+  title: "Как мы <span class='word_uppercase'>работаем</span>?"
+  howwork_list:
+    - image_src: "/images/how1.svg"
+      label: "Получаем от вас обратную связь"
+      description: "Оставьте свои контактные данные в форме ниже и мы вам обязательно перезвоним."
+    - image_src: "/images/how2.svg"
+      label: "Договариваемся о деталях и сроках"
+      description: "На этом этапе мы согласуем план работ и утвердим дизайн."
+    - image_src: "/images/how3.svg"
+      label: "Тестируем и презентуем проект"
+      description: "Здесь будет интересное описание этого этапа. Здесь будет интересное описание этого этапа."
+    - image_src: "/images/how4.svg"
+      label: "Успешная оплата"
+      description: "Здесь будет интересное описание. Здесь будет интересное описание."
+
+############################# Footer #################################
+footer:
+  enable: true
+  form_title: "Обратная связь"
+  name_placeholder: "Текст *"
+  email_placeholder: "Почта *"
+  button_label: "Отправить"

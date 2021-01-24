@@ -1,0 +1,78 @@
+.header{
+    @extend %fixedPos;
+    top: 0;
+    left: 0;
+    padding: 17px 60px;
+    width: 100%;
+    z-index: 100;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+.lang{
+    @extend %nullList;
+    &__item{
+        padding: 0 8px;
+    }
+    &__link{
+        @extend %nullLink;
+        @extend %textUppercase;
+        font-size: (14rem / 16);
+        color:rgba(0,0,0,.5);
+        &_selected{
+            color: $basicBlack;
+        }
+        &:hover{
+            color:$basicOrange;
+        }
+    }
+    
+}
+.nav{
+    @extend %basePos;
+    &.active{
+        .nav__icon{
+            svg line{
+                stroke:#fff;
+            }
+        }
+        .nav__list{
+            display: block;
+        }
+    }
+    &__icon{
+        @extend %noneOutline;
+        background: transparent;
+        z-index: 100;
+    }
+    &__list{
+        @extend %absolutePos;
+        @extend %nullList;
+        display: none;
+        top:0;
+        right: calc(100% - 22px);
+        background: $basicOrange;
+        padding: 15px 45px 15px 16px;
+        z-index: 50;
+    }
+    &__item{
+        margin-bottom: 16px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    &__link{
+        @extend %nullLink;
+        color: $basicWhite;
+        display: inline-flex;
+        align-items: center;
+        &:hover{
+            color: $basicWhite;
+            opacity: .7;
+            span{
+                transform: translateX(6px);
+            }
+        }
+        span{
+            transition: .3s;
+        }
+    }
+}
